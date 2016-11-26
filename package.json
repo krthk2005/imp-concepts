@@ -1,0 +1,23 @@
+{
+  "name": "imp-concepts",
+  "version": "1.0.0",
+  "description": "This is to try all things and to verify in future",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krthk2005/imp-concepts.git"
+  },
+  "author": "kartheek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krthk2005/imp-concepts/issues"
+  },
+  "homepage": "https://github.com/krthk2005/imp-concepts#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}

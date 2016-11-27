@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router', 'ui.bootstrap']);
+var app = angular.module('myApp', ['ui.router', 'ui.bootstrap','customFactories']);
 
 app.config(['$stateProvider', '$urlRouterProvider','$locationProvider',
 	function($stateProvider, $urlRouterProvider,$locationProvider) {

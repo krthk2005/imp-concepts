@@ -1,3 +1,8 @@
 angular.module('myApp')
-.controller('studentCtrl', function ($scope) {
-});
+.controller('studentCtrl',['$scope','studentFactory', function ($scope,studentFactory) {
+	studentFactory.getAllStudents().then(function(response){
+		console.log(response);
+	},function(error){
+		console.log(error);
+	})
+}]);

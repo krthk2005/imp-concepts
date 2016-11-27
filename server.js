@@ -3,10 +3,11 @@ var http = require('http');
 var _ = require('underscore')
 var bodyParser = require('body-parser');
 var jsonfile = require('jsonfile');
+var path = require('path');
 
 var students = require('./data/studentsData.json');
 var file = './data/studentsData.json';
-
+var PORT = process.env.PORT || 3000;
 
 
 var app = express()
@@ -30,7 +31,9 @@ app.post('/addStudents', function  (req, res) {
   obj = _.pick(req.body, 'name', 'age');
   console.log("objs::::"+obj.name+ obj.age)
   if(_.has(obj, "name") && _.has(obj, "age")){
-    jsonfile.writeFileSync(file, obj)
+    var allStudents = jsonfile.readFileSync(file);
+    allStudents.push(obj);
+    jsonfile.writeFileSync(file, allStudents);
     res.send("success");
   }else{
     res.send("record not inserted");
@@ -44,6 +47,6 @@ app.get('/*', function(req, res) {
   res.sendFile(path.resolve(__dirname + '/public/index.html'));
 });
 
-http.createServer(app).listen(3000, function () {
-  console.log("Server ready at http://localhost:3000");
-});
+ http.createServer(app).listen(PORT, function() {
+    console.log("Server ready at " + PORT);
+  });

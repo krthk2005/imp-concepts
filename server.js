@@ -27,9 +27,7 @@ app.get('/studentsData', function  (req, res) {
 
 app.post('/addStudents', function  (req, res) {
   var obj = {};
-  console.log("req::::"+req.body.name);
   obj = _.pick(req.body, 'name', 'age');
-  console.log("objs::::"+obj.name+ obj.age)
   if(_.has(obj, "name") && _.has(obj, "age")){
     var allStudents = jsonfile.readFileSync(file);
     allStudents.push(obj);
